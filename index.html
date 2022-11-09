@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="/jquery-3.6.js"></script>
+      <title>Demo</title>
+</head>
+
+<body>
+      <style>
+            body {
+                  background-color: black;
+            }
+
+            .light {
+                  width: 100px;
+                  height: 100vh;
+                  background-color: #ffa5ff;
+                  box-shadow: 0 0 100px #ffa5ff;
+                  position: absolute;
+                  top: 0px;
+                  left: 50%;
+                  right: 50%;
+                  transform: translateX(-50%)
+            }
+
+            .container {
+                  position: fixed;
+                  width: 1000px;
+                  height: 600px;
+                  top: 50%;
+                  left: 50%;
+                  background-color: #312fac;
+                  transform: translate(-50%, -50%);
+            }
+
+            .wall-left {
+                  position: absolute;
+                  top: 100px;
+                  left: 10%;
+                  width: 200px;
+                  height: 400px;
+                  transition: 1s;
+                  border: 3px solid #ea5bea;
+                  border-radius: 5px;
+                  transform: perspective(290px) rotate(-11deg) rotateY(30deg);
+                  box-shadow: 0 0 10px #507cea;
+            }
+
+            .wall-right {
+                  position: absolute;
+                  top: 100px;
+                  right: 10%;
+                  width: 200px;
+                  height: 400px;
+                  transition: 1s;
+                  border: 3px solid #5bb3ea;
+                  border-radius: 5px;
+                  transform: perspective(290px) rotate(11deg) rotateY(-30deg);
+                  box-shadow: 0 0 10px #507cea;
+            }
+
+            .heart {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  width: 400px;
+                  height: 400px;
+                  background-image: linear-gradient(#f9acfa, #8ca7ec);
+                  transform: translate(-50%, -50%);
+                  border-radius: 50%;
+                  opacity: 0.5;
+                  filter: blur(45px);
+            }
+
+            img {
+                  max-width: 100%;
+                  height: auto;
+            }
+
+            .load {
+                  background-image: url('./images/green.png');
+                  background-repeat: no-repeat;
+                  background-attachment: fixed;
+                  background-size: 100% 100%;
+                  z-index: 100;
+                  opacity: 80%;
+                  position: absolute;
+                  top: 100px;
+                  right: 200px;
+                  width: 200px;
+                  height: 150px;
+                  transform: rotate(-45deg);
+                  animation: loading 7s;
+            }
+
+            @keyframes loading {
+                  50% {
+                        top: 250px;
+                        right: 680px;
+                  }
+
+                  100% {
+                        top: 350px;
+                        right: 680px;
+                  }
+            }
+      </style>
+      <div class="load"></div>
+      <div class="light"></div>
+      <div class="container">
+            <div class="wall-left"></div>
+            <div class="wall-right"></div>
+      </div>
+      <div class="heart"></div>
+      <script type="text/javascript">
+            window.addEventListener("load", function() {
+                  const load = document.querySelector('.load');
+                  if(load) {
+                        setTimeout(() => {
+                        load.parentElement.removeChild(load);
+                        }, 6500);
+                  } else {
+                        return;
+                  }
+            });
+      </script>
+
+</body>
+
+</html>
